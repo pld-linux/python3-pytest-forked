@@ -8,7 +8,7 @@ Summary:	Run each test in a forked subprocess
 Summary(pl.UTF-8):	Uruchamianie każdego testu w oddzielnym procesie
 Name:		python-pytest-forked
 Version:	0.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pytest-forked/
