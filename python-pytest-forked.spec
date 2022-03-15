@@ -7,20 +7,22 @@
 Summary:	Run each test in a forked subprocess
 Summary(pl.UTF-8):	Uruchamianie każdego testu w oddzielnym procesie
 Name:		python-pytest-forked
-Version:	1.1.3
-Release:	2
+# keep 1.3.x here for python2 support
+Version:	1.3.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/pytest-forked/
 Source0:	https://files.pythonhosted.org/packages/source/p/pytest-forked/pytest-forked-%{version}.tar.gz
-# Source0-md5:	7d507e84bf9d59182fd528f48fcae8cc
+# Source0-md5:	7de04c46b48ca5c5a24e45bf1546355f
 URL:		https://github.com/pytest-dev/pytest-forked
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 BuildRequires:	python-setuptools_scm
 %if %{with tests}
-BuildRequires:	python-pytest >= 3.1.0
+BuildRequires:	python-py
+BuildRequires:	python-pytest >= 3.10
 %endif
 %endif
 %if %{with python3}
@@ -28,7 +30,8 @@ BuildRequires:	python3-modules >= 1:3.5
 BuildRequires:	python3-setuptools
 BuildRequires:	python3-setuptools_scm
 %if %{with tests}
-BuildRequires:	python3-pytest >= 3.1.0
+BuildRequires:	python3-py
+BuildRequires:	python3-pytest >= 3.10
 %endif
 %endif
 BuildRequires:	rpm-pythonprov
