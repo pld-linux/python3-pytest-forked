@@ -18,8 +18,8 @@ Source0:	https://files.pythonhosted.org/packages/source/p/pytest-forked/pytest-f
 URL:		https://github.com/pytest-dev/pytest-forked
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
-BuildRequires:	python-setuptools
-BuildRequires:	python-setuptools_scm
+BuildRequires:	python-setuptools >= 1:41.4
+BuildRequires:	python-setuptools_scm >= 3.3
 %if %{with tests}
 BuildRequires:	python-py
 BuildRequires:	python-pytest >= 3.10
@@ -27,8 +27,8 @@ BuildRequires:	python-pytest >= 3.10
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.5
-BuildRequires:	python3-setuptools
-BuildRequires:	python3-setuptools_scm
+BuildRequires:	python3-setuptools >= 1:41.4
+BuildRequires:	python3-setuptools_scm >= 3.3
 %if %{with tests}
 BuildRequires:	python3-py
 BuildRequires:	python3-pytest >= 3.10
@@ -66,7 +66,8 @@ Uruchamianie każdego testu w oddzielnym procesie.
 %py_build
 
 %if %{with tests}
-# pytest-flaky plugin breaks test_functional_boxed_capturing
+# pytest-flaky plugin breaks test_functional_boxed_capturing;
+# test_xfail relies on plugin autoloading, so can't PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 PYTHONPATH=$(pwd)/src \
 %{__python} -m pytest -p no:flaky testing
 %endif
